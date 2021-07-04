@@ -41,7 +41,10 @@ public class P001TwoSum {
 			}
 		}
 		return new int[] {-1,-1};
-
+		/**
+		 * Time Complexity: O[n^2]
+		 * Space Complexity: O[n]
+		 */
 	}
 
 	private int[] hashMapTwoPass(int[] input, int target) {
@@ -56,6 +59,10 @@ public class P001TwoSum {
 			}
 		}
 		return new int[] {-1,-1};
+		/**
+		 * Time Complexity: O[2n]
+		 * Space Complexity: O[n]
+		 */
 	}
 
 	private int[] hashMapOnePass(int[] input, int target) {
@@ -68,6 +75,10 @@ public class P001TwoSum {
 			map.put(input[i], i);
 		}
 		return new int[] {-1,-1};
+		/**
+		 * Time Complexity: O[n]
+		 * Space Complexity: O[n]
+		 */
 	}
 
 
