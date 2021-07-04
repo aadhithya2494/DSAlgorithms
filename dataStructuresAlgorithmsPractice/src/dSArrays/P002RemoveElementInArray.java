@@ -21,7 +21,24 @@ public class P002RemoveElementInArray {
 	public void test1() {
 		int input[] = {1,2,3,4,5,6};
 		int remove = 3;
-		System.out.println(Arrays.toString(removeTarget(input,remove)));
+		System.out.println("2Pass: "+Arrays.toString(removeTarget(input,remove)));
+		System.out.println("1Pass: "+Arrays.toString(removeTargetOnePass(input,remove)));
+	}
+	
+	@Test
+	public void test2() {
+		int input[] = {1,1,1,1,1};
+		int remove = 1;
+		System.out.println("2Pass: "+Arrays.toString(removeTarget(input,remove)));
+		System.out.println("1Pass: "+Arrays.toString(removeTargetOnePass(input,remove)));
+	}
+	
+	@Test
+	public void test3() {
+		int input[] = {1,1,1,1,1};
+		int remove = 2;
+		System.out.println("2Pass: "+Arrays.toString(removeTarget(input,remove)));
+		System.out.println("1Pass: "+Arrays.toString(removeTargetOnePass(input,remove)));
 	}
 	
 	private int[] removeTarget(int[] input, int remove) {
@@ -40,5 +57,25 @@ public class P002RemoveElementInArray {
 		 * Time Complexity: O[2n]
 		 * Space Complexity: O[1]
 		 */
+	}
+	
+	private int[] removeTargetOnePass(int[] input, int remove) {
+			int swap = 0;
+			for (int i = 0; i < input.length; i++) {
+				if(input[swap] != remove && input[i] != remove) {
+					swap++;
+				}
+				else if (input[swap] == remove && input[i] != remove) {
+					int temp = input[swap];
+					input[swap] = input[i];
+					input[i] = temp;
+					while(input[swap] != remove) 
+						swap++;
+				}
+				else if (input[swap] == remove && input[i] == remove) {
+					continue;
+				}
+			}
+			return(Arrays.copyOfRange(input, 0, swap));
 	}
 }

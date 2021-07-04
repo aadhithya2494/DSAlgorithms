@@ -1,5 +1,6 @@
 package dSArrays;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,10 +27,27 @@ public class P001TwoSum {
 	public void test1() {
 		int[] input = {1,2,3,4,5,6};
 		int target = 7;
-		bruteForce(input,target);
-		hashMapTwoPass(input,target);
-		hashMapOnePass(input,target);
-
+		System.out.println("BruteForce: "+Arrays.toString(bruteForce(input,target)));
+		System.out.println("2Pass: "+Arrays.toString(hashMapTwoPass(input,target)));
+		System.out.println("1Pass: "+Arrays.toString(hashMapOnePass(input,target)));
+	}
+	
+	@Test
+	public void test2() {
+		int[] input = {1,2,3,4,5,6};
+		int target = 10;
+		System.out.println("BruteForce: "+Arrays.toString(bruteForce(input,target)));
+		System.out.println("2Pass: "+Arrays.toString(hashMapTwoPass(input,target)));
+		System.out.println("1Pass: "+Arrays.toString(hashMapOnePass(input,target)));
+	}
+	
+	@Test
+	public void test3() {
+		int[] input = {1,2,3,4,5,6};
+		int target = 101;
+		System.out.println("BruteForce: "+Arrays.toString(bruteForce(input,target)));
+		System.out.println("2Pass: "+Arrays.toString(hashMapTwoPass(input,target)));
+		System.out.println("1Pass: "+Arrays.toString(hashMapOnePass(input,target)));
 	}
 
 	private int[] bruteForce(int[] input, int target) {
