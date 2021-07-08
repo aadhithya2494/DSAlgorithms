@@ -16,7 +16,7 @@ public class P003IntegerPalindromeorNot {
 	 * Solution 3: Convert to Int array and 2 pointer swap
 	 */
 	
-	@Test
+//	@Test
 	public void test1() {
 		int input = 121;
 		System.out.println("String Method: "+stringMethod(input));
@@ -24,7 +24,7 @@ public class P003IntegerPalindromeorNot {
 		System.out.println("Two pointer: "+twoPointer(input));
 	}
 	
-	@Test
+	//@Test
 	public void test2() {
 		int input = 1231;
 		System.out.println("String Method: "+stringMethod(input));
@@ -32,11 +32,11 @@ public class P003IntegerPalindromeorNot {
 		System.out.println("Two pointer: "+twoPointer(input));
 	}
 	
-	@Test
+//	@Test
 	public void test3() {
 		int input = 123454321;
-		System.out.println("String Method: "+stringMethod(input));
-		System.out.println("Math Operations: "+mathMethod(input));
+		//System.out.println("String Method: "+stringMethod(input));
+		//System.out.println("Math Operations: "+mathMethod(input));
 		System.out.println("Two pointer: "+twoPointer(input));
 	}
 	
@@ -48,7 +48,7 @@ public class P003IntegerPalindromeorNot {
 		System.out.println("Two pointer Operations: "+twoPointer(input));
 	}
 	
-	@Test
+	//@Test
 	public void test5() {
 		int input = 1;
 		System.out.println("String Method: "+stringMethod(input));
@@ -83,6 +83,10 @@ public class P003IntegerPalindromeorNot {
 		 */
 	}
 	
+	/**
+	 * Time Complexity: O[n/2]
+	 * Space Complexity: O[1]
+	 */
 	private boolean twoPointer(int input) {
 		int length = (input+"").length();
 		int left = 0, right = length-1;
@@ -96,10 +100,6 @@ public class P003IntegerPalindromeorNot {
 			right--;
 		}
 		return true;
-		/**
-		 * Time Complexity: O[n/2]
-		 * Space Complexity: O[1]
-		 */
 	}
 	
 }

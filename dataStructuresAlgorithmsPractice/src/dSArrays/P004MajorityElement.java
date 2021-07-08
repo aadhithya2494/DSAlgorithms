@@ -51,16 +51,11 @@ public class P004MajorityElement {
 	}
 
 	private int mapMethod(int[] input) {
-		if(input.length == 1) return input[0];
+		//if(input.length == 1) return input[0];
 		Map<Integer,Integer> map = new HashMap<>();
 		for (int i = 0; i < input.length; i++) {
-			if(map.containsKey(input[i])) {
-				map.put(input[i], map.get(input[i])+1);
-				if(map.get(input[i]) > (input.length)/2) return input[i];
-			}
-			else {
-				map.put(input[i], 1);
-			}
+			map.put(input[i], map.getOrDefault(input[i], 0)+1);
+			if(map.get(input[i]) > (input.length)/2) return input[i];
 		}
 		return 0;
 		/**
