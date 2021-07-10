@@ -26,6 +26,7 @@ public class P005IntersectionOfTwoArrays {
 		Integer[] input2 = {2,2};
 		System.out.println(Arrays.toString(bruteForce(input1, input2)));
 		System.out.println(Arrays.toString(setMethod(input1, input2)));	
+		System.out.println(Arrays.toString(twopointerMethod(input1, input2)));
 	}
 
 	private Object[] bruteForce(Integer[] input1, Integer[] input2) {
@@ -55,6 +56,30 @@ public class P005IntersectionOfTwoArrays {
 		 * Time Complexity: O[n]
 		 * Space Complexity: O[n]
 		 */
+	}
+	
+	/**
+	 * two pointer approach
+	 * Time Complexity: O[n]
+	 * Space Complexity: O[n]
+	 */
+	
+	private Object[] twopointerMethod(Integer[] input1, Integer[] input2) {
+		Set<Integer> output = new HashSet<>();
+		Arrays.sort(input1);
+		Arrays.sort(input2);
+		int left = 0, right = 0;
+		while(left<input1.length && right < input2.length) {
+			if (input1[left] < input2[right])
+                left++;
+            else if (input2[right] < input1[left])
+                right++;
+            else {
+               output.add(input2[right++]);
+               left++;
+            }
+		}
+		return output.toArray();
 	}
 
 
